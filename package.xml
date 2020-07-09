@@ -51,7 +51,19 @@
   <buildtool_depend>catkin</buildtool_depend>
   <build_depend>rospy</build_depend>
   <build_export_depend>rospy</build_export_depend>
+
   <exec_depend>rospy</exec_depend>
+  <exec_depend>fiducial_slam</exec_depend>
+  <exec_depend>aruco_detect</exec_depend>
+  <exec_depend>move_basic</exec_depend>
+  <exec_depend>move_base</exec_depend>
+  <exec_depend>rplidar_ros</exec_depend>
+
+  <exec_depend>gmapping</exec_depend>
+  <exec_depend>map_server</exec_depend>
+
+  <exec_depend>magni_nav</exec_depend>
+
 
 
   <!-- The export tag contains other, unspecified, tags -->
