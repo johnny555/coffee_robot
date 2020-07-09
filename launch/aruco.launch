@@ -6,7 +6,7 @@
 -->
 <launch>
   <arg name="mapping_mode" default="false"/>
-  <arg name="fiducial_len" value="0.136" />
+  <arg name="fiducial_len_setting" value="0.136" />
 
   <!-- camera -->
   <include file="$(find raspicam_node)/launch/camerav2_1280x960_10fps.launch" />
@@ -16,6 +16,8 @@
     <arg name="camera" value="/raspicam_node"/>
     <arg name="image" value="image"/>
     <arg name="transport" value="compressed"/>
+    <arg name="fiducial_len" value="$(arg fiducial_len_setting)" />
+
     <!-- fiducial_len -->
   </include>
 
@@ -25,6 +27,7 @@
     <arg name="odom_frame" value="odom"/>
     <arg name="base_frame" value="base_footprint"/>
     <arg name="future_date_transforms" value="0.5"/>
+    <arg name="fiducial_len" value="$(arg fiducial_len_setting)" />
 
   </include>
 </launch>
