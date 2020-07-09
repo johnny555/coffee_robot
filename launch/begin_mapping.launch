@@ -21,8 +21,9 @@
         <param name="map_frame" value="map"/>
     </node>
 
+    <include file="$(find coffee_robot)/launch/rplidar.launch" />
+
     <include file="$(find magni_nav)/launch/move_basic.launch" />
     <include file="$(find coffee_robot)/launch/aruco.launch">
-        <arg name="fiducial_len" value="0.136" />
     </include>
 </launch>
