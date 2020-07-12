@@ -15,15 +15,8 @@
     -->
     <param name="ubiquity_robot_mode" type="string" value="navigation"/> 
 
-    <node pkg="gmapping" name="gmapping_node" output="screen" type="slam_gmapping">
 
-        <param name="scan" value="scan"/>
-        <param name="map_frame" value="map"/>
-    </node>
-
-    <include file="$(find coffee_robot)/launch/rplidar.launch" />
-
-    <include file="$(find magni_nav)/launch/move_basic.launch" />
+    <include file="$(find magni_nav)/launch/move_basic.launch" /> 
     <include file="$(find coffee_robot)/launch/aruco.launch">
     </include>
 </launch>
