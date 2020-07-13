@@ -1,0 +1,53 @@
+<launch>
+
+  <!-- Setup Fiducial Based localisation -->
+
+  <param name="ubiquity_robot_mode" type="string" value="navigation" />
+
+  <include file="$(find coffee_robot)/launch/aruco.launch" > 
+
+  </include>
+
+
+  <!-- Setup LIDAR based localisation -->
+
+  <include file="$(find coffee_robot)/launch/rplidar.launch" />
+
+  <arg name="map_file" default="/home/ubuntu/house.yaml" />
+
+  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
+
+  <node pkg="amcl" type="amcl" output="screen" name="amcl">
+    <param name="scan" value="scan" />
+    <param name="tf_broadcast" value="false" />
+  </node>
+
+
+  <!-- Setup EKF Fusion -->
+
+  <node name="ekf" pkg="robot_localization" type="ekf_localization_node" output="screen" >
+
+    <param name="world_frame" value="map" />
+    <param name="pose0" value="/amcl_pose" />
+    <param name="pose1" value="/fiducial_pose" />
+
+
+    <rosparam param="pose0_config">[true, true, true,
+                                    true, true, true,
+                                    true, true, true,
+                                    true, true, true,
+                                    true, true, true]</rosparam>
+
+    <rosparam param="pose1_config">[true, true, true,
+                                    true, true, true,
+                                    true, true, true,
+                                    true, true, true,
+                                    true, true, true]</rosparam>
+  </node>
+
+
+  <!-- Start the move base -->
+
+  <include file="$(find coffee_robot)/launch/move_base.launch" />
+
+</launch>
