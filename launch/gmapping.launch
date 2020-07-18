@@ -4,6 +4,9 @@
 
 	<param name="scan" value="scan"/>
 	<param name="map_frame" value="map"/>
-
+	<param name="xmin" value="-5" />
+	<param name="ymin" value="-5" />
+	<param name="ymax" value="5" />
+	<param name="xmax" value="5" />
 </node>
 </launch>
