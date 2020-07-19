@@ -7,8 +7,8 @@
 <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
 
 <node pkg="amcl" type="amcl" output="screen" name="amcl">
-<param name="scan" value="scan" />
-<param name="tf_broadcast" value="false" />
+    <param name="scan" value="scan" />
+    <param name="tf_broadcast" value="true" />
 </node>
 
 
