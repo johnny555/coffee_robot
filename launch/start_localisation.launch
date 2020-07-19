@@ -2,13 +2,12 @@
 
 <include file="$(find coffee_robot)/launch/rplidar.launch" />
 
-<arg name="map_file" default="/home/ubuntu/house.yaml" />
+<arg name="map_file" default="/home/ubuntu/housev2.yaml" />
 
 <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
 
 <node pkg="amcl" type="amcl" output="screen" name="amcl">
     <param name="scan" value="scan" />
-    <param name="tf_broadcast" value="true" />
 </node>
 
 
