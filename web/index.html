@@ -1,71 +1,59 @@
 <html>
 
 <head>
-	<title>My first web page for ROS!</title>
+	<!-- Bootstrap -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js">
+	<!-- ROS stuff -->
+	<script type="text/javascript" src="https://static.robotwebtools.org/EaselJS/current/easeljs.min.js">
 
 	</script>
-	<script src="https://static.robotwebtools.org/roslibjs/current/roslib.min.js">
+	<script type="text/javascript" src="https://static.robotwebtools.org/EventEmitter2/current/eventemitter2.min.js">
+
+	</script>
+	<script type="text/javascript" src="https://static.robotwebtools.org/roslibjs/current/roslib.min.js">
+
+	</script>
+	<script type="text/javascript" src="https://static.robotwebtools.org/ros2djs/current/ros2d.min.js">
+
+	</script>
+	<!-- Vuejs -->
+	<script src="https://cdn.jsdelivr.net/npm/vue">
 
 	</script>
 </head>
 
-<body class="d-flex flex-column h-100">
-	<!-- header of the page -->
-	<header class="header">
-		<div class="container">
-			<div class="jumbotron text-center">
-				<h1>Hello from Robot Ignite Academy!</h1>
-				<p>Let's connect our website to a ROS robot!</p>
+<body>
+	<div id="app" class="container">
+		<div class="row">
+			<div class="col-md-12 col-sm-6 text-center">
+				<h3>Connection status</h3>
+				<p class="text-danger" v-if="!connected">Not connected!</p>
+				<p class="text-success" v-if="connected">Connected!</p>
+				<label>ROSBridge address</label>
+				<br>
+				<input type="text" v-model="rosbridge_address" />
+				<br><br>
+				<button :disabled="loading" class="btn btn-danger" @click="disconnect"
+                    v-if="connected">Disconnect!</button>
+				<button :disabled="loading" class="btn btn-success" @click="connect" v-else>Connect!</button>
 			</div>
-		</div>
-	</header>
-
-	<!-- main content -->
-	<main id="vueApp">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-4">
-					<div class="card">
-						<div class="card-body">
-							<h3>{{ menu_title }}</h3>
-							<hr>
-							<label>ROSBridge address</label>
-							<br>
-							<input type="text" v-model="rosbridge_address" />
-							<br>
-							<button class="mt-2 btn btn-success" v-if="connected" @click="disconnect">Connected!</button>
-							<button class="mt-2 btn btn-primary" v-else @click="connect">Connect!</button>
-						</div>
+			<div class="col-md-12 col-sm-6" style="overflow:auto;">
+				<div class="row">
+					<div class="col-md-12 text-center">
+						<h5>Available services</h5>
 					</div>
-				</div>
-				<div class="col-md-8">
-					<div class="card">
-						<div class="card-body">
-							<h2 class="text-center">{{ main_title }}</h2>
-							<hr>
-							<p>Some actions for the robot</p>
-							<button class="mt-2 btn btn-primary" :disabled="!connected" @click="sendCommand">Move the robot!</button>
-							<button class="mt-2 btn btn-primary" :disabled="!connected" @click="turnRight">Turn right!</button>
-							<button class="mt-2 btn btn-danger" :disabled="!connected" @click="stop">Stop!</button>
-						</div>
+
+					<!-- 1st row -->
+					<div class="col-md-12 text-center my-2">
+						<div id="map"></div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</main>
+	</div>
 
-	<!-- footer -->
-	<footer class="footer mt-auto bg-dark text-light">
-		<div class="container">
-			<h5>page ends here!</h5>
-		</div>
-	</footer>
-
-	<script src="main.js">
-
+	<script type="text/javascript" src="main.js">
 	</script>
 </body>
 
