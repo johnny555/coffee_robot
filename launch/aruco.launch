@@ -7,6 +7,7 @@
 <launch>
   <arg name="mapping_mode" default="false"/>
   <arg name="fiducial_len_setting" value="0.136" />
+  <arg name="pub_tf" default="true" />
 
   <!-- camera -->
   <include file="$(find raspicam_node)/launch/camerav2_1280x960_10fps.launch" />
@@ -28,8 +29,7 @@
     <arg name="base_frame" value="base_footprint"/>
     <arg name="future_date_transforms" value="0.5"/>
     <arg name="fiducial_len" value="$(arg fiducial_len_setting)" />
-    <arg name="publish_tf" value="false" />
-
+    <arg name="publish_tf" value="$(arg pub_tf)" />
 
   </include>
 </launch>
