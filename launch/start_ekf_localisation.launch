@@ -5,7 +5,7 @@
   <param name="ubiquity_robot_mode" type="string" value="navigation" />
 
   <include file="$(find coffee_robot)/launch/aruco.launch" > 
-	<arg name="pub_tf" value="false" />
+	  <arg name="pub_tf" value="false" />
   </include>
 
 
@@ -21,13 +21,10 @@
     <rosparam file="$(find coffee_robot)/param/amcl_param.yaml" command="load" />
   </node>
 
-
   <!-- Setup EKF Fusion -->
-
-  <node name="ekf" pkg="robot_localization" type="ekf_global_localization_node" output="screen" >
+  <node name="global_ekf" pkg="robot_localization" type="ekf_localization_node" output="screen" >
     <rosparam file="$(find coffee_robot)/param/ekf_global_param.yaml" command="load" />
   </node>
-
 
   <!-- Start the move base -->
 
