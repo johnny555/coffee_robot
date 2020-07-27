@@ -18,43 +18,14 @@
   <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
 
   <node pkg="amcl" type="amcl" name="amcl">
-    <param name="scan" value="scan" />
-    <param name="tf_broadcast" value="false" />
-    <param name="max_particles" value="500" />
+    <rosparam file="$(find coffee_robot)/param/amcl_param.yaml" command="load" />
   </node>
 
 
   <!-- Setup EKF Fusion -->
 
-  <node name="ekf" pkg="robot_localization" type="ekf_localization_node" output="screen" >
-
-    <param name="world_frame" value="map" />
-
-    <param name="pose0" value="amcl_pose" />
-    <param name="pose1" value="fiducial_pose" />
-    <!-- <param name="odom0" value="odom" /> -->
-
-    <param name="frequency" value="5" />
-    <param name="sensor_timeout" value="1" />
-
-
-    <param name="publish_tf" value="true" />
-
-    <param name="two_d_mode" value="true" />
-
-    <rosparam param="pose0_config">[true, true, false,
-                                    false, false, true,
-                                    false, false, false,
-                                    false, false, false,
-                                    false, false, false]</rosparam>
-
-    <rosparam param="pose1_config">[true, true, true,
-                                    true, true, true,
-                                    false, false, false,
-                                    false, false, false,
-                                    false, false, false] </rosparam>
-    
-
+  <node name="ekf" pkg="robot_localization" type="ekf_global_localization_node" output="screen" >
+    <rosparam file="$(find coffee_robot)/param/ekf_global_param.yaml" command="load" />
   </node>
 
 
