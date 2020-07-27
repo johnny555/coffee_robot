@@ -1,8 +1,10 @@
 <launch>
 
+  <include file="$(find coffee_robot)/launch/perception_up.launch" /> 
+
   <!-- Setup map Fusion -->
 
-  <arg name="map_file" default="/home/john/map.yaml" />
+  <arg name="map_file" default="/home/ubuntu/map.yaml" />
 
   <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
 
