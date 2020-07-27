@@ -11,12 +11,14 @@ global_costmap:
     cost_scaling_factor:  10.0  # exponential rate at which the obstacle cost drops off (default: 10)
     inflation_radius:     0.2  # max. distance from an obstacle at which costs are incurred for planning paths.
 
-  update_frequency: 5.0
+  update_frequency: 2.0
  # static_map: true
  # rolling_window: true
   width: 6.0
   height: 6.0
   resolution: 0.05
+  transform_tolerance: 1
+
 
 base_global_planner: "global_planner/GlobalPlanner"
 GlobalPlanner:                                  # Also see: http://wiki.ros.org/global_planner
@@ -38,5 +40,4 @@ GlobalPlanner:                                  # Also see: http://wiki.ros.org/
    neutral_cost: 50                              # default 50
    cost_factor: 3.0                              # Factor to multiply each cost from costmap by, default 3.0
    publish_potential: true                       # Publish Potential Costmap (this is not like the navfn pointcloud2 potential), default true
-   transform_tolerance: 0.5
 

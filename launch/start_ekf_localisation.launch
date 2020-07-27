@@ -20,6 +20,7 @@
   <node pkg="amcl" type="amcl" name="amcl">
     <param name="scan" value="scan" />
     <param name="tf_broadcast" value="false" />
+    <param name="max_particles" value="500" />
   </node>
 
 
