@@ -1,5 +1,3 @@
     scan: scan
-
     tf_broadcast: false
-
-    max_particles: 500
+    max_particles: 5000

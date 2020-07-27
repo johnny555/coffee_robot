@@ -2,45 +2,27 @@
 
   <!-- Setup Fiducial Based localisation, do it without raspicam.... -->
 
-   <arg name="fiducial_len_setting" value="0.136" />
+  <include file="$(find coffee_robot)/launch/aruco_no_camera.launch" />
 
-  <!-- camera -->
-  
-  <!-- Fiducial detection -->
-  <include file="$(find aruco_detect)/launch/aruco_detect.launch">
-    <arg name="camera" value="/raspicam_node"/>
-    <arg name="image" value="image"/>
-    <arg name="transport" value="compressed"/>
-    <arg name="fiducial_len" value="$(arg fiducial_len_setting)" />
+  <!-- Setup map Fusion -->
 
-    <!-- fiducial_len -->
-  </include>
+  <arg name="map_file" default="/home/john/map.yaml" />
 
-  <!-- Fiducial slam -->
-  <include file="$(find fiducial_slam)/launch/fiducial_slam.launch">
-    <arg name="map_frame" value="map"/>
-    <arg name="odom_frame" value="odom"/>
-    <arg name="base_frame" value="base_footprint"/>
-    <arg name="future_date_transforms" value="0.5"/>
-    <arg name="fiducial_len" value="$(arg fiducial_len_setting)" />
-    <arg name="publish_tf" value="false" />
+  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
 
-  </include>
-
-  <!-- Setup LIDAR based localisation -->
-
-  <node pkg="amcl" type="amcl" name="amcl">
-    <rosparam file="$(find coffee_robot)/param/amcl_param.yaml" command="load" />
-  </node>
-
-  <!-- Setup EKF Fusion -->
   <!-- Setup EKF Fusion -->
   <node name="global_ekf" pkg="robot_localization" type="ekf_localization_node" output="screen" >
     <rosparam file="$(find coffee_robot)/param/ekf_global_param.yaml" command="load" />
   </node>
 
-  <!-- Start the move base -->
+  <!-- Setup LIDAR based localisation -->
 
-  <include file="$(find coffee_robot)/launch/move_base.launch" />
+  <node pkg="amcl" type="amcl" name="amcl">
+    <rosparam file="$(find coffee_robot)/param/amcl_param.yaml" command="load" />
+  </node> 
+
+  <!-- Start the move base 
+
+  <include file="$(find coffee_robot)/launch/move_base.launch" /> -->
 
 </launch>
