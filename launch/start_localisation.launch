@@ -2,12 +2,12 @@
 
 <include file="$(find coffee_robot)/launch/rplidar.launch" />
 
-<arg name="map_file" default="/home/ubuntu/housev2.yaml" />
+<arg name="map_file" default="/home/ubuntu/house.yaml" />
 
 <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
 
 <node pkg="amcl" type="amcl" output="screen" name="amcl">
-    <param name="scan" value="scan" />
+    <rosparam file="$(find coffee_robot)/param/amcl_param.yaml" command="load" />
 </node>
 
 

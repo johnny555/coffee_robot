@@ -1,0 +1,6 @@
+
+serial_port: /dev/ttyUSB0
+serial_baudrate: 115200
+frame_id: rplidar
+inverted: false
+angle_compensate: true
