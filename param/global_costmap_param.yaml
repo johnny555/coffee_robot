@@ -16,7 +16,7 @@ global_costmap:
   width: 12.0
   height: 12.0
   resolution: 0.1
-  transform_tolerance: .3
+  transform_tolerance: .8
 
 
 base_global_planner: "global_planner/GlobalPlanner"
