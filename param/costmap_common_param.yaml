@@ -7,8 +7,9 @@ static:
   enable: true
   map_topic: /map
 
-observation_sources: laser_scan_sensor
+observation_sources: laser_scan_sensor sonar_sensor
 
 laser_scan_sensor: {sensor_frame: rplidar, data_type: LaserScan, topic: scan , 
                       marking: true, clearing: true}
 
+sonar_sensor: {name: sonar, topic: sonar,  type: "range_sensor_layer::RangeSensorLayer"}

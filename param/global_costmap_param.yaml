@@ -7,7 +7,7 @@ global_costmap:
     - {name: inflation_layer,         type: "costmap_2d::InflationLayer"}
   inflation_layer:
     enabled:              true
-    cost_scaling_factor:  10.0  # exponential rate at which the obstacle cost drops off (default: 10)
+    cost_scaling_factor:  2.0  # exponential rate at which the obstacle cost drops off (default: 10)
     inflation_radius:     0.3  # max. distance from an obstacle at which costs are incurred for planning paths.
 
   update_frequency: 2.0
@@ -16,7 +16,7 @@ global_costmap:
   width: 12.0
   height: 12.0
   resolution: 0.1
-  transform_tolerance: .8
+  transform_tolerance: 1.0
 
 
 base_global_planner: "global_planner/GlobalPlanner"
