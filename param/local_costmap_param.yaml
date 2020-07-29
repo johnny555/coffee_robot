@@ -10,7 +10,6 @@ local_costmap:
   height: 6.0
   resolution: 0.1
 
-  #local_costmap_planner: "dwa_local_planner/DWAPlannerRos"
-local_costmap_planner: "teb_local_planner/TebLocalPlannerROS"
+local_costmap_planner: "dwa_local_planner/DWAPlannerRos"
 
 controller_frequency: 10.0
