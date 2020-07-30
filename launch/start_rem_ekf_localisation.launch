@@ -19,10 +19,11 @@
 
   <node pkg="amcl" type="amcl" name="amcl">
     <rosparam file="$(find coffee_robot)/param/amcl_param.yaml" command="load" />
-  </node> 
+  </node>
 
   <!-- Start the move base 
 
-  <include file="$(find coffee_robot)/launch/move_base.launch" />  -->
- 
+  <include file="$(find coffee_robot)/launch/move_base.launch" />  
+ -->
+
 </launch>

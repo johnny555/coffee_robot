@@ -7,8 +7,8 @@ DWAPlannerROS:
   max_vel_y: 0.0  # diff drive robot
   min_vel_y: 0.0  # diff drive robot
 
-  max_trans_vel: 0.2 # choose slightly less than the base's capability
-  min_trans_vel: -0.2  # this is the min trans velocity when there is negligible rotational velocity
+  max_trans_vel: 0.4 # choose slightly less than the base's capability
+  min_trans_vel: 0.1  # this is the min trans velocity when there is negligible rotational velocity
   trans_stopped_vel: 0.1
 
   # Warning!
@@ -89,7 +89,7 @@ TebLocalPlannerROS:
  free_goal_vel: False
 
  holonomic_robot: false 
- escape_vel: -0.1 # -0.1
+ #escape_vel: -0.1 # -0.1
     
  # Obstacles
     
@@ -102,7 +102,7 @@ TebLocalPlannerROS:
  costmap_converter_plugin: ""
  costmap_converter_spin_thread: True
  costmap_converter_rate: 5
- allow_init_with_backwards_motion: True
+ allow_init_with_backwards_motion: False
 
  
  # Optimization
