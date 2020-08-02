@@ -1,8 +1,10 @@
 <launch>
 
+  <!-- This launch file aims to allow testing of remote server capabilities. Assumes that perception_up.launch has been launched on magni. -->
+
   <!-- Setup Fiducial Based localisation, assume raspicam up on magni .... -->
 
-  <include file="$(find coffee_robot)/launch/aruco_no_camera.launch" />
+  <include file="$(find coffee_robot)/launch/localisation/aruco_no_camera.launch" />
 
   <!-- Setup map Fusion -->
 
@@ -23,7 +25,7 @@
 
   <!-- Start the move base -->
 
-  <include file="$(find coffee_robot)/launch/move_base.launch" />  
+  <include file="$(find coffee_robot)/launch/nav/move_base.launch" />  
  
 
 </launch>

@@ -3,6 +3,8 @@
 
   Fiducials are 0.136, which needs to be passed down through the mapping stack. 
 
+
+   Requires the raspicam node to be running. 
 -->
 <launch>
   <arg name="mapping_mode" default="false"/>
