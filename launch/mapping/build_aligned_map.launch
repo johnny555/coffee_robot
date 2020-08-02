@@ -1,0 +1,16 @@
+<launch>
+<!-- Note that you need to reset the fiducials through a service call to /fiducial_slam/clear_map , see README.md -->
+
+  <!-- Turn on camera and lidar -->
+  <include file="$(find coffee_robot)/launch/perception/perception_up.launch" />
+
+  <!-- Spin up gmapping -->
+
+  <include file="$(find coffee_robot)/launch/mapping/gmapping.launch" />
+
+  <!-- Spin up fiducial_slam -->
+
+  <include file="$(find coffee_robot)/launch/localisation/fiducial.launch" />
+
+
+</launch>

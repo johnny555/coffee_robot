@@ -61,7 +61,7 @@
 
   <exec_depend>gmapping</exec_depend>
   <exec_depend>map_server</exec_depend>
-
+  <exec_depend>hector_mapping</exec_depend>
 
 
   <exec_depend>magni_nav</exec_depend>

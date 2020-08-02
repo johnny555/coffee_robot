@@ -4,7 +4,7 @@
 
   <!-- Setup Fiducial Based localisation, assume raspicam up on magni .... -->
 
-  <include file="$(find coffee_robot)/launch/localisation/aruco_no_camera.launch" />
+  <include file="$(find coffee_robot)/launch/localisation/fiducial.launch" />
 
   <!-- Setup map Fusion -->
 

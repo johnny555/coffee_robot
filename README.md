@@ -38,12 +38,40 @@ to
 
 To start in a new environment, we need to align laser map and the fiducials. 
 
-> add process here to create two maps that are aligned... something about running mapping and have fiducial slam not publishing transforms so that its map gets made in the same coordinate frame as the map world. 
-> perhaps start mapping first, THEN turn on fiducial slam. Or perhaps have both running and then hit the reset_map switch on fiducial slam... 
+1. Launch `build_aligned_map.launch` on magni
+
+`roslaunch coffee_robot build_aligned_map.launch`
+
+DO NOT MOVE THE ROBOT YET!!!!
+
+2. Clean any prexisting map using a service call to fiducial slam. (This resets the origin of fiducial slam to the robot current pose, which is what gmapping is using too)
+
+`rosservice call /fiducial_slam/clear_map "{}"`
+
+3. On a remote computer
+
+`roslaunch coffee_robot view_mapping.launch`
+
+Now tele-operate the robot around slowly. Observe the map being generated. 
+
+4. When finished, save the map. (in this case with name housev3.yaml)
+
+`rosrun map_server map_saver map:=/map -f housev3`
+
+Note that the fiducial_map will be saved in `.ros/slam/map.txt`
+
 
 # System setup
 
 Modify the system-d file on the Magni so that it boots the ros system on launch. 
+
+
+
+# Testing
+
+You can use the following to give the nav system a different map
+
+`roslaunch coffee_robot navigation.launch map_file:=/home/ubuntu/housev2.map`
 
 
 # TODO's

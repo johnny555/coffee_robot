@@ -6,7 +6,7 @@
 
   <!-- Setup Fiducial Based localisation -->
 
-  <include file="$(find coffee_robot)/launch/localisation/aruco_no_camera.launch" />
+  <include file="$(find coffee_robot)/launch/localisation/fiducial.launch" />
 
   <!-- Setup map Fusion -->
 
