@@ -5,33 +5,9 @@
   <!-- Turn on camera and lidar -->
   <include file="$(find coffee_robot)/launch/perception/perception_up.launch" />
 
-  <!-- Setup Fiducial Based localisation, do it without raspicam.... -->
+  <!-- Just reuse the remote localisation stack -->
 
-  <include file="$(find coffee_robot)/launch/localisation/aruco_no_camera.launch" />
-
-  <!-- Setup map Fusion -->
-
-  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
-
-  <!-- Setup EKF Fusion, note we rely on ubiquity motor to publish base_link->odom -->
-
-  <node name="global_ekf" pkg="robot_localization" type="ekf_localization_node" output="screen" >
-    <rosparam file="$(find coffee_robot)/param/ekf_global_param.yaml" command="load" />
-  </node>
-
-  <!-- Setup LIDAR based localisation -->
-
-  <node pkg="amcl" type="amcl" name="amcl">
-    <rosparam file="$(find coffee_robot)/param/amcl_param.yaml" command="load" />
-  </node>
-
-  <!-- Run node to periodicaly initialize the amcl pose using the fiducial pose ... -->
-
-  <node pkg="coffee_robot" type="pose_init.py" name="pose_aligner" output="screen" />
-
-  <!-- Start the move base -->
-
-  <include file="$(find coffee_robot)/launch/nav/move_base.launch" />  
+  <include file="$(find coffee_robot)/launch/nav/remote_localisation.launch" />
 
 
 </launch>
