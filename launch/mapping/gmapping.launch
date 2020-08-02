@@ -1,7 +1,5 @@
 <launch>
 
-  <include file="$(find coffee_robot)/launch/perception/rplidar.launch" />
-
   <node pkg="gmapping" name="gmapping_node" output="screen" type="slam_gmapping">
 
     <param name="scan" value="scan"/>
