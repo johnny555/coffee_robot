@@ -7,7 +7,7 @@
 
   <!-- Setup Fiducial Based localisation, do it without raspicam.... -->
 
-  <include file="$(find coffee_robot)/launch/perception/aruco_no_camera.launch" />
+  <include file="$(find coffee_robot)/launch/localisation/aruco_no_camera.launch" />
 
   <!-- Setup map Fusion -->
 
