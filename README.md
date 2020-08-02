@@ -60,6 +60,12 @@ Now tele-operate the robot around slowly. Observe the map being generated.
 
 Note that the fiducial_map will be saved in `.ros/slam/map.txt`
 
+## Notes on first time setup
+
+If you have done anything previously, then the location of the tf may not initialise where the robot is. In this case the fiducials will be incorrectly located. Try restarting the roscore by typing
+
+`systemctl restart magni-base.service`
+
 
 # System setup
 
