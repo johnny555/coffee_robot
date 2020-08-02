@@ -1,0 +1,19 @@
+<launch>
+
+  <arg name="map_file" default="/home/john/map.yaml" />
+
+  <include file="$(find coffee_robot)/launch/perception/rplidar.launch" />
+
+  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
+
+  <node pkg="gmapping" name="gmapping_node" output="screen" type="slam_gmapping">
+
+    <param name="scan" value="scan"/>
+    <param name="map_frame" value="map"/>
+    <param name="xmin" value="-5" />
+    <param name="ymin" value="-5" />
+    <param name="ymax" value="5" />
+    <param name="xmax" value="5" />
+  </node>
+
+</launch>

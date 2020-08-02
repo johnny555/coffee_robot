@@ -4,16 +4,14 @@
 
    Setup map Fusion -->
 
-  <arg name="map_file" default="/home/john/map.yaml" />
+  <arg name="map_file" default="/home/ubuntu/map.yaml" />
 
   <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
 
 
   <!-- Setup LIDAR based localisation -->
 
-  <node pkg="amcl" type="amcl" name="amcl">
-    <rosparam file="$(find coffee_robot)/param/amcl_only_param.yaml" command="load" />
-  </node> 
+  <include file="$(find coffee_robot)/launch/localisation/amcl.launch" /> 
 
   <!-- Start the move base -->
 

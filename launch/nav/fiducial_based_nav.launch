@@ -1,0 +1,19 @@
+<launch>
+
+  <arg name="map_file" default="/home/ubuntu/map.yaml" />
+
+  <include file="$(find coffee_robot)/launch/perception/perception_up.launch" />
+
+  <!-- Setup Fiducial Based localisation -->
+
+  <include file="$(find coffee_robot)/launch/localisation/aruco_no_camera.launch" />
+
+  <!-- Setup map Fusion -->
+
+  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
+
+  <!-- Start the move base -->
+
+  <include file="$(find coffee_robot)/launch/move_base.launch" />
+
+</launch>

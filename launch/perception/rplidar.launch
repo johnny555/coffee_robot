@@ -1,6 +1,6 @@
 <launch>
   <node name="rplidarNode"          pkg="rplidar_ros"  type="rplidarNode" output="screen">
-      <rosparam file="$(find coffee_robot)/param/rplidar.yaml" command="load" />
+      <rosparam file="$(find coffee_robot)/param/perception/rplidar.yaml" command="load" />
   </node>
   
 </launch>

@@ -1,0 +1,7 @@
+<launch>
+<!-- Turns on the key perception sensors. -->
+  <include file="$(find coffee_robot)/launch/perception/rplidar.launch" />
+
+  <include file="$(find coffee_rabet)/launch/perception/camerav2_1280x960_10fps.launch" />
+
+</launch>
