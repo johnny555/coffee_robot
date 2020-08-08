@@ -10,7 +10,6 @@
   <arg name="mapping_mode" default="false"/>
   <arg name="fiducial_len_setting" value="0.136" />
   <arg name="pub_tf" default="false" />
-  <arg name="do_flat_nav" default="false" />
 
   <!-- Fiducial detection -->
   <include file="$(find aruco_detect)/launch/aruco_detect.launch">
@@ -30,8 +29,6 @@
     <arg name="future_date_transforms" value="0.5"/>
     <arg name="fiducial_len" value="$(arg fiducial_len_setting)" />
     <arg name="publish_tf" value="$(arg pub_tf)" />
-    <arg name="navigate_flat" value="$(arg do_flat_nav)" />
-    <arg name="fiducials_flat" value="$(arg do_flat_nav)" />
 
   </include>
 </launch>
