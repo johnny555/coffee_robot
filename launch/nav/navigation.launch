@@ -1,7 +1,5 @@
 <launch>
 
-  <arg name="map_file" default="/home/ubuntu/map.yaml" />
-
   <!-- Turn on camera and lidar -->
   <include file="$(find coffee_robot)/launch/perception/perception_up.launch" />
 
