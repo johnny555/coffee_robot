@@ -1,3 +1,18 @@
     scan: scan
     tf_broadcast: true
-    max_particles: 500
+    max_particles: 5000
+
+
+    update_min_d: 0.1
+    update_min_a: 0.26
+
+    laser_max_range: 6
+
+    laser_sigma_hit: 0.2
+    odom_model_type: diff-corrected
+
+    #odom_alpha1: 0.01
+    #odom_alpha2: 0.01
+
+    #odom_alpha3: 0.01 
+    #odom_alpha4: 0.01

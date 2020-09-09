@@ -9,7 +9,7 @@ local_costmap:
   width: 6.0
   height: 6.0
   resolution: 0.1
-  transform_tolerance: 0.2
+  transform_tolerance: 1
 
 #local_costmap_planner: "dwa_local_planner/DWAPlannerRos"
 local_costmap_planner: "teb_local_planner/TebLocalPlannerROS"

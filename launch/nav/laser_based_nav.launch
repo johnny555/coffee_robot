@@ -13,8 +13,14 @@
 
   <include file="$(find coffee_robot)/launch/localisation/amcl.launch" /> 
 
-  <!-- Start the move base -->
+  <!-- Setup EKF Fusion -->
+  <node name="global_ekf" pkg="robot_localization" type="ekf_localization_node" output="screen" >
+    <rosparam file="$(find coffee_robot)/param/localisation/ekf_global_param_laser.yaml" command="load" />
+  </node>
 
-  <include file="$(find coffee_robot)/launch/move_base.launch" /> 
+
+  <!-- Start the move base 
+
+  <include file="$(find coffee_robot)/launch/nav/move_base.launch" /> -->
 
 </launch>

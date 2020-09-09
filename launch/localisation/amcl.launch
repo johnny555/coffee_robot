@@ -1,15 +1,16 @@
 <launch>
 
-<!-- Setup map Fusion -->
+<!-- Setup map Fusion 
 
   <arg name="map_file" default="/home/john/map.yaml" />
 
   <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
+-->
 
   <!-- Setup LIDAR based localisation -->
 
   <node pkg="amcl" type="amcl" name="amcl" output="screen">
-    <rosparam file="$(find coffee_robot)/param/localisation/amcl_only_param.yaml" command="load" />
+    <rosparam file="$(find coffee_robot)/param/localisation/amcl.yaml" command="load" />
   </node> 
 
 </launch>
