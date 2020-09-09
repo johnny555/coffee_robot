@@ -18,7 +18,7 @@ class InitPose():
     def get_pose(self, pose):
         self.fiducial_pose = pose
 
-    def publish_once(self, time):
+    def publish_once(self, time=0):
         """
         This is because publishing in topics sometimes fails the first time you publish.
         In continuous publishing systems, this is no big deal, but in systems that publish only
