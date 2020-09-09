@@ -205,7 +205,7 @@
       <xacro:raspi_camera name="raspicam" connected_to="base_link">
         <!-- <origin xyz="0.020 0.115 0.155" rpy="0 0 ${pi}"/> -->
         <!-- new camera mount is roughly deltas of x=+0.01 y=-0.01 z=+0.02   -->
-        <origin xyz="0.03 0.105 0.175" rpi="0 0 ${pi}" />
+        <origin xyz="0.03 0.105 0.175" rpy="0 0 0" />
       </xacro:raspi_camera>
     </xacro:if>
     <xacro:if value="${raspicam_mount == 'downward'}">
