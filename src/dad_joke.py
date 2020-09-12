@@ -25,7 +25,7 @@ jokes = [
     "What is a centipedes's favorite Beatle song?  I want to hold your hand, hand, hand, hand...",
     "My first time using an elevator was an uplifting experience. The second time let me down.",
     "To be Frank, I'd have to change my name.",
-    "Slept like a log last night … woke up in the fireplace.",
+    "Slept like a log last night ... woke up in the fireplace.",
     "Why does a Moon-rock taste better than an Earth-rock? Because it's a little meteor."
 ]
 
