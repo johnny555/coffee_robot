@@ -44,7 +44,7 @@ class DadJoke():
     
     def speak_joke(self, result):
         rospy.loginfo('deploy dad joke')
-        os.sysetm('espeak "Hello, here is your coffee ..."')
+        os.system('espeak "Hello, here is your coffee ..."')
         os.system('espeak " ' + choice(jokes) + ' " ')
         os.system('espeak' + '"Goodbye"')
         
