@@ -44,7 +44,9 @@ class DadJoke():
     
     def speak_joke(self, result):
         rospy.loginfo('deploy dad joke')
+        os.sysetm("Hello, here is your coffee ...")
         os.system('espeak " ' + choice(jokes) + ' " ')
+        os.system("Goodbye")
         
 
         
@@ -55,7 +57,7 @@ class DadJoke():
             
 if __name__ == '__main__':
     rospy.init_node('dad_joke_node', anonymous=True)
-    resetter = DadJoke()
+    joker = DadJoke()
     rospy.loginfo('Ready for jokes')
 
     try:
