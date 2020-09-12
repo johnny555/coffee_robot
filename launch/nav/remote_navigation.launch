@@ -29,9 +29,9 @@
   <node pkg="coffee_robot" type="pose_init.py" name="pose_updater" output="screen" />
 
 
-  <!-- Start the move base 
+  <!-- Start the move base -->
 
   <include file="$(find coffee_robot)/launch/nav/move_base.launch" />  
- -->
+ 
 
 </launch>

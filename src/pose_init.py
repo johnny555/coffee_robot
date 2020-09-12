@@ -10,7 +10,8 @@ class InitPose():
 
         self.fiducial_pose = None
         
-        self.fiducial_pose_sub = rospy.Subscriber('/fiducial_pose', PoseWithCovarianceStamped, self.get_pose)
+        self.fiducial_pose_sub = rospy.Subscriber('/fiducial_pose', PoseWithCovarianceStamped, 
+                    self.get_pose)
         self.ctrl_c = False
         self.rate = rospy.Rate(10) # 10hz
         rospy.on_shutdown(self.shutdownhook)
