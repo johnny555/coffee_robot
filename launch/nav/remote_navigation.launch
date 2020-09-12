@@ -26,7 +26,7 @@
 
   <!-- Setup auto re-init node for amcl -->
 
-  <node pkg="coffee_robot" type="pose_init.py" name="pose_updater" output="screen" />
+  <node pkg="coffee_robot" type="pose_init.py" name="pose_updater" output="screen" respawn="true"/>
 
 
   <!-- Start the move base -->

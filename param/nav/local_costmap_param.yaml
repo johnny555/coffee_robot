@@ -11,7 +11,7 @@ local_costmap:
   resolution: 0.1
   transform_tolerance: 1
 
-#local_costmap_planner: "dwa_local_planner/DWAPlannerRos"
-local_costmap_planner: "teb_local_planner/TebLocalPlannerROS"
+local_costmap_planner: "dwa_local_planner/DWAPlannerRos"
+#local_costmap_planner: "teb_local_planner/TebLocalPlannerROS"
 
 controller_frequency: 5.0
