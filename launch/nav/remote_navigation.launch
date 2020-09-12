@@ -32,6 +32,10 @@
   <!-- Start the move base -->
 
   <include file="$(find coffee_robot)/launch/nav/move_base.launch" />  
- 
+
+  <!-- Start dad joke service -->
+
+  <node pkg="coffee_robot" type="dad_joke.py" name="dad_joker" output="screen" respawn="true"/>
+
 
 </launch>
