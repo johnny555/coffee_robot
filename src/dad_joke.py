@@ -3,7 +3,7 @@
 import rospy
 import os
 from move_base_msgs.msg import MoveBaseActionResult
-
+from dadjokes import Dadjoke
 
 
 class DadJoke():
@@ -19,7 +19,8 @@ class DadJoke():
     
     def speak_joke(self, result):
         rospy.loginfo('deploy dad joke')
-        os.system('espeak "here is a dad joke" ')
+        joke = Dadjoke()
+        os.system('espeak " ' + joke + ' " ')
         
 
         
