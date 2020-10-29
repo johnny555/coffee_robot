@@ -84,13 +84,13 @@ You can use the following to give the nav system a different map
 
 If you use VS code you can use the remote container extension to get a dev environment and also to run rviz. 
 
-1, Get the "remote-containers" vscode extension. 
-2, Install docker
-3, if on windows install VcXsrv, run X Server, check the "disable access controls" and use argument `-nowgl`
-4, run the command
+1. Get the "remote-containers" vscode extension. 
+2. Install docker
+3. if on windows install VcXsrv, run X Server, check the "disable access controls" and use argument `-nowgl`
+4. run the command
 `export DISPLAY=<yourHostip>:0` where <yourhostip> is a placeholder for your host ip 
-5, Done forget to `source /etc/opt/kinetic/setup.bash` so that you can access the ros tools. 
-6, Run `rviz`
+5. Done forget to `source /opt/ros/kinetic/setup.bash` so that you can access the ros tools. 
+6. Run `rviz`
 
 # TODO's
 
