@@ -15,6 +15,6 @@
 
   <!-- Start the move base -->
 
-  <include file="$(find coffee_robot)/launch/nav/move_base.launch" />
+  <include file="$(find coffee_robot)/launch/move_base.launch" />
 
 </launch>
