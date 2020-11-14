@@ -92,6 +92,8 @@ If you use VS code you can use the remote container extension to get a dev envir
 5. Done forget to `source /opt/ros/kinetic/setup.bash` so that you can access the ros tools. 
 6. Run `rviz`
 
+Don't forget to setup ROS_MASTER_URI, ROS_IP it also might be handy to add ubiquityrobot.local to /etc/hosts
+
 # TODO's
 
 [ ] Determine if the RPi4 has enough compute to do all tasks or if we need an external server. 
