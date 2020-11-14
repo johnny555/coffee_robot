@@ -80,6 +80,18 @@ You can use the following to give the nav system a different map
 `roslaunch coffee_robot navigation.launch map_file:=/home/ubuntu/housev2.map`
 
 
+# Remote containers
+
+If you use VS code you can use the remote container extension to get a dev environment and also to run rviz. 
+
+1. Get the "remote-containers" vscode extension. 
+2. Install docker
+3. if on windows install VcXsrv, run X Server, check the "disable access controls" and use argument `-nowgl`
+4. run the command
+`export DISPLAY=<yourHostip>:0` where <yourhostip> is a placeholder for your host ip 
+5. Done forget to `source /opt/ros/kinetic/setup.bash` so that you can access the ros tools. 
+6. Run `rviz`
+
 # TODO's
 
 [ ] Determine if the RPi4 has enough compute to do all tasks or if we need an external server. 
