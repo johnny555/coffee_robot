@@ -17,17 +17,18 @@
     <rosparam file="$(find coffee_robot)/param/localisation/ekf_global_param.yaml" command="load" />
   </node>
 
-  <!-- Setup LIDAR based localisation -->
+  <!-- Setup LIDAR based localisation 
 
   <node pkg="amcl" type="amcl" name="amcl">
     <rosparam file="$(find coffee_robot)/param/localisation/amcl_param.yaml" command="load" />
   </node>
+  -->
 
 
-  <!-- Setup auto re-init node for amcl -->
+  <!-- Setup auto re-init node for amcl 
 
   <node pkg="coffee_robot" type="pose_init.py" name="pose_updater" output="screen" />
-
+ -->  
 
   <!-- Start the move base -->
 
