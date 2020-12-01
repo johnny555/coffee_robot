@@ -25,15 +25,16 @@ class InitPose():
         In continuous publishing systems, this is no big deal, but in systems that publish only
         once, it IS very important.
         """
-        while not self.ctrl_c:
-            connections = self.amcl_pose_init.get_num_connections()
-            if connections > 0:
-                self.amcl_pose_init.publish(self.fiducial_pose)
-                rospy.loginfo(self.fiducial_pose)
-                rospy.loginfo("Pose Published")
-                break
-            else:
-                self.rate.sleep()
+        if self.fiducial_pose is not None: 
+            while not self.ctrl_c:
+                connections = self.amcl_pose_init.get_num_connections()
+                if connections > 0:
+                    self.amcl_pose_init.publish(self.fiducial_pose)
+                    rospy.loginfo(self.fiducial_pose)
+                    rospy.loginfo("Pose Published")
+                    break
+                else:
+                    self.rate.sleep()
         
     def shutdownhook(self):
         # works better than the rospy.is_shutdown()
