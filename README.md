@@ -93,10 +93,3 @@ If you use VS code you can use the remote container extension to get a dev envir
 6. Run `rviz`
 
 Don't forget to setup ROS_MASTER_URI, ROS_IP it also might be handy to add ubiquityrobot.local to /etc/hosts
-
-# TODO's
-
-[ ] Determine if the RPi4 has enough compute to do all tasks or if we need an external server. 
-[ ] Write a simple web service to control waypoints.
-[ ] Work out how to get the waypoints to persist with the map files.
-[ ] Explore more prominent E-stop switch
