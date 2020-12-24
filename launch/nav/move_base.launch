@@ -1,11 +1,14 @@
 <launch>
 
 <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
-    <rosparam file="$(find coffee_robot)/param/nav/costmap_common_param.yaml" command="load" ns="local_costmap" />
-    <rosparam file="$(find coffee_robot)/param/nav/costmap_common_param.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find coffee_robot)/param/nav/costmap_common_param.yaml" 
+            command="load" ns="local_costmap" />
+    <rosparam file="$(find coffee_robot)/param/nav/costmap_common_param.yaml" 
+            command="load" ns="global_costmap" />
     <rosparam file="$(find coffee_robot)/param/nav/local_costmap_param.yaml" command="load" />
     <rosparam file="$(find coffee_robot)/param/nav/global_costmap_param.yaml" command="load" />
     <rosparam file="$(find coffee_robot)/param/nav/base_local_planner_param.yaml" command="load" />
+    
   </node>
 
 </launch>
