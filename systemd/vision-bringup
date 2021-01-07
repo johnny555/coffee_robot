@@ -30,7 +30,7 @@ log info "vision-base: Launching vision"
 export ROS_HOME=$(echo ~ubuntu)/.ros
 export ROS_LOG_DIR=$log_path
 export ROS_MASTER_URI=http://10.1.1.184:11311    #Change this to ethernet ip address
-roslaunch coffee_robot vision.launch &
+roslaunch coffee_robot vision.launch --wait &
 
 PID=$!
 
