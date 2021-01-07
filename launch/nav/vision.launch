@@ -1,0 +1,12 @@
+<launch>
+<!-- Turns on the cameria perception sensors. -->
+  <include file="$(find coffee_robot)/launch/perception/camerav2_1280x960_10fps.launch" />
+
+<!-- Turns on the fiducial slam system.-->
+
+<!-- Setup Fiducial Based localisation, assume raspicam up on magni .... -->
+
+  <include file="$(find coffee_robot)/launch/localisation/fiducial.launch" />
+
+
+</launch>
