@@ -1,0 +1,10 @@
+[Unit]
+Requires=roscore.service
+PartOf=roscore.service
+After=NetworkManager.service time-sync.target roscore.service magni-base.service
+[Service]
+Type=simple
+User=ubuntu
+ExecStart=/usr/sbin/krytn-bringup
+[Install]
+WantedBy=multi-user.target

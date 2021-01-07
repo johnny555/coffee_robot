@@ -71,7 +71,7 @@ If you have done anything previously, then the location of the tf may not initia
 
 Modify the system-d file on the Magni so that it boots the ros system on launch. 
 
-
+systemd files go in `/etc/systemd/system/` folder. 
 
 # Testing
 

@@ -1,0 +1,43 @@
+#!/bin/bash
+
+function log() {
+  logger -s -p user.$1 ${@:2}
+}
+
+log info "krytn-base: Using workspace setup file /home/ubuntu/catkin_ws/devel/setup.bash"
+source /home/ubuntu/catkin_ws/devel/setup.bash
+
+log_path="/tmp"
+if [[ ! -d $log_path ]]; then
+  CREATED_LOGDIR=true
+  trap 'CREATED_LOGDIR=false' ERR
+    log warn "krytn-base: The log directory you specified \"$log_path\" does not exist. Attempting to create."
+    mkdir -p $log_path 2>/dev/null
+    chown ubuntu:ubuntu $log_path 2>/dev/null
+    chmod ug+wr $log_path 2>/dev/null
+  trap - ERR
+  # if log_path could not be created, default to tmp
+  if [[ $CREATED_LOGDIR == false ]]; then
+    log warn "krytn-base: The log directory you specified \"$log_path\" cannot be created. Defaulting to \"/tmp\"!"
+    log_path="/tmp"
+  fi
+fi
+
+source /etc/ubiquity/env.sh
+log info "krytn-base: Launching krytn"
+
+# Punch it.
+export ROS_HOME=$(echo ~ubuntu)/.ros
+export ROS_LOG_DIR=$log_path
+roslaunch coffee_robot navigation.launch &
+rosrun coffee_robot dad_joke.py &
+rosrun web_video_server web_video_server _port:=8888 &
+cd /home/ubuntu/robot_web_view_react/
+#npm start &
+#node server.js &
+#kroslaunch magni_demos simple_navigation.launch &
+PID=$!
+
+log info "krytn-base: Started roslaunch as background process, PID $PID, ROS_LOG_DIR=$ROS_LOG_DIR"
+echo "$PID" > $log_path/krytn-base.pid
+wait "$PID"
