@@ -24,20 +24,16 @@ if [[ ! -d $log_path ]]; then
 fi
 
 source /etc/ubiquity/env.sh
-log info "krytn-base: Launching krytn"
+log info "vision-base: Launching vision"
 
 # Punch it.
 export ROS_HOME=$(echo ~ubuntu)/.ros
 export ROS_LOG_DIR=$log_path
-roslaunch coffee_robot start_base.launch &
-rosrun coffee_robot dad_joke.py &
-rosrun web_video_server web_video_server _port:=8888 &
-cd /home/ubuntu/robot_web_view_react/
-#npm start &
-#node server.js &
-#kroslaunch magni_demos simple_navigation.launch &
+export ROS_MASTER_URI=http://10.1.1.184:11311    #Change this to ethernet ip address
+roslaunch coffee_robot vision.launch &
+
 PID=$!
 
-log info "krytn-base: Started roslaunch as background process, PID $PID, ROS_LOG_DIR=$ROS_LOG_DIR"
-echo "$PID" > $log_path/krytn-base.pid
+log info "vision: Started roslaunch as background process, PID $PID, ROS_LOG_DIR=$ROS_LOG_DIR"
+echo "$PID" > $log_path/vision.pid
 wait "$PID"

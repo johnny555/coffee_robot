@@ -1,0 +1,34 @@
+<launch>
+
+  <!-- This launch file aims to allow testing of remote server capabilities. Assumes that perception_up.launch has been launched on magni. -->
+
+  <!-- Setup map Fusion -->
+
+  <arg name="map_file" default="/home/ubuntu/map.yaml" />
+
+  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
+
+  <!-- Setup EKF Fusion -->
+  <node name="global_ekf" pkg="robot_localization" type="ekf_localization_node" output="screen" >
+    <rosparam file="$(find coffee_robot)/param/localisation/ekf_global_param.yaml" command="load" />
+  </node>
+
+  <!-- Setup LIDAR based localisation  -->
+
+
+  <node pkg="amcl" type="amcl" name="amcl">
+    <rosparam file="$(find coffee_robot)/param/localisation/amcl_param.yaml" command="load" />
+  </node>
+
+
+  <!-- Setup auto re-init node for amcl  -->
+
+  <node pkg="coffee_robot" type="pose_init.py" name="pose_updater" output="screen" />
+
+
+  <!-- Start the move base -->
+
+  <include file="$(find coffee_robot)/launch/nav/move_base.launch" />  
+ 
+
+</launch>
