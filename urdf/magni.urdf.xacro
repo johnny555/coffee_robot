@@ -95,8 +95,9 @@
     <child link="rplidar"/>
     <!-- <origin xyz="-0.047 0 0.3" rpy="0 0 0"/> -->
     <!-- moved in x by 2cm up in z by 2.5cm -->
-    <origin xyz="-0.027 0 0.325" rpy="0 0 0"/>
     
+    <!-- 3d print <origin xyz="-0.027 0 0.325" rpy="0 0 0"/> -->
+    <origin xyz="-0.93 0 0.198" rpy="0 0 0"/>
   </joint>
 
 
@@ -187,7 +188,7 @@
       <xacro:raspi_camera name="raspicam" connected_to="base_link">
         <!-- <origin xyz="0.020 0.115 0.155" rpy="0 0 ${pi}"/> -->
         <!-- new camera mount is roughly deltas of x=+0.01 y=-0.01 z=+0.02   -->
-        <origin xyz="0.03 0.105 0.175" rpy="0 0 -${pi/2}" />
+        <origin xyz="0.122 -0.03 1.06" rpy="0 0 ${pi/2}" />
       </xacro:raspi_camera>
    
 
