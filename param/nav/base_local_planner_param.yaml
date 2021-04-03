@@ -26,10 +26,10 @@ DWAPlannerROS:
   min_vel_theta: 0.5  # this is the min angular velocity when there is negligible translational velocity
   # rot_stopped_vel: 0.1   # parameter doesn't apply to dwa planner, i think (?)
   
-  acc_lim_x: 5.0 # maximum is theoretically 2.0, but we 
-  acc_lim_theta: 4.8
+  acc_lim_x:  2.0 # maximum is theoretically 2.0, but we 
+  acc_lim_theta: 2 #4.8
   acc_lim_y: 0.0  # diff drive robot = can't strafe
-  acc_lim_trans: 1 #0.2
+  acc_lim_trans: 2 #0.2
 
 # Goal Tolerance Parameters
   yaw_goal_tolerance: 0.35  # 0.05
