@@ -6,6 +6,7 @@ function log() {
 
 log info "krytn-base: Using workspace setup file /home/ubuntu/catkin_ws/devel/setup.bash"
 source /home/ubuntu/catkin_ws/devel/setup.bash
+bash /home/ubuntu/catkin_ws/src/coffee_robot/systemd/clean_logs.sh
 
 log_path="/tmp"
 if [[ ! -d $log_path ]]; then
