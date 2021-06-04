@@ -30,7 +30,7 @@ log info "krytn-base: Launching krytn"
 export ROS_HOME=$(echo ~ubuntu)/.ros
 export ROS_LOG_DIR=$log_path
 roslaunch coffee_robot start_base.launch &
-rosrun coffee_robot dad_joke.py &
+roslaunch coffee_robot perception_up.launch &
 rosrun web_video_server web_video_server _port:=8888 &
 cd /home/ubuntu/robot_web_view_react/
 #npm start &
