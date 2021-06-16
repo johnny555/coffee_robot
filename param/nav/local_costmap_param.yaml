@@ -6,12 +6,12 @@ local_costmap:
   publish_frequency: 2.0
   static_map: false
   rolling_window: true
-  width: 2.0
-  height: 2.0
+  width: 8
+  height: 8
   resolution: 0.1
   transform_tolerance: 1
 
-local_costmap_planner: "dwa_local_planner/DWAPlannerRos"
+local_costmap_planner: "dwa_local_planner/DWAPlannerROS"
 #local_costmap_planner: "teb_local_planner/TebLocalPlannerROS"
 
 controller_frequency: 10.0
